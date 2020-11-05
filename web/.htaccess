@@ -130,7 +130,7 @@ DirectoryIndex index.php
   RewriteRule ^(.*)$ /assets/$1 [L]
 
   # Deny access to Drupal core's web installers.
-  RewriteRule ^core/(authorize|install|update)\.php$ - [F]
+  # RewriteRule ^core/(authorize|install|update)\.php$ - [F]
 
   # Pass all requests not referring directly to files in the filesystem to
   # index.php.
