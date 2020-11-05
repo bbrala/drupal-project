@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/drupal-composer/drupal-project.svg?branch=8.x)](https://travis-ci.org/drupal-composer/drupal-project)
 
+## This project is a demo of how split core could work in Drupal
+
 This project template provides a starter kit for managing your site
 dependencies with [Composer](https://getcomposer.org/).
 
@@ -20,7 +22,7 @@ for your setup.
 After that you can create the project:
 
 ```
-composer create-project drupal-composer/drupal-project:8.x-dev some-dir --no-interaction
+composer create-project bbrala/drupal-project:dev-8.x-split some-dir --no-interaction
 ```
 
 With `composer require ...` you can download new dependencies to your
