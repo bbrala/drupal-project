@@ -1,3 +1,3 @@
 <?php
 
-chdir(__DIR__ . '/../../app') && include __DIR__ . '/../../app/install.php';
+chdir(__DIR__ . '/../../app/core') && include __DIR__ . '/../../app/core/install.php';
