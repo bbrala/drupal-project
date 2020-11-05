@@ -56,7 +56,8 @@
             "bash ./scripts/composer/post-install-cmd.sh"
         ],
         "post-update-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
+            "bash ./scripts/composer/post-install-cmd.sh"
         ]
     },
     "extra": {
