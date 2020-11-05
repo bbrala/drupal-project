@@ -43,18 +43,29 @@ class ScriptHandler {
       require_once $drupalRoot . '/core/includes/install.inc';
       new Settings([]);
       $settings['settings']['config_sync_directory'] = (object) [
-        'value' => Path::makeRelative($drupalFinder->getComposerRoot() . '/config/sync', $drupalRoot),
+        'value' => Path::makeRelative($drupalFinder->getComposerRoot() . '/app/config/sync', $drupalRoot),
         'required' => TRUE,
       ];
+
+      $settings['settings']['php_storage']['default']['directory'] = (object) [
+        'value' => Path::makeRelative($drupalRoot . '/../storage/compiled', $drupalRoot),
+        'required' => TRUE,
+      ];
+
+      $settings['settings']['file_private_path'] = (object) [
+        'value' => Path::makeRelative($drupalRoot . '/../storage/files-private', $drupalRoot),
+        'required' => TRUE,
+      ];
+
       drupal_rewrite_settings($settings, $drupalRoot . '/sites/default/settings.php');
       $fs->chmod($drupalRoot . '/sites/default/settings.php', 0666);
       $event->getIO()->write("Created a sites/default/settings.php file with chmod 0666");
     }
 
     // Create the files directory with chmod 0777
-    if (!$fs->exists($drupalRoot . '/sites/default/files')) {
+    if (!$fs->exists($drupalRoot . '/../web/sites/default')) {
       $oldmask = umask(0);
-      $fs->mkdir($drupalRoot . '/sites/default/files', 0777);
+      $fs->mkdir($drupalRoot . '/../web/sites/default', 0777);
       umask($oldmask);
       $event->getIO()->write("Created a sites/default/files directory with chmod 0777");
     }
