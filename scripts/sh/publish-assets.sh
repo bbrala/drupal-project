@@ -28,7 +28,7 @@ sync_assets() {
 }
 
 main() {
-  local dirs="core modules/contrib profiles/contrib themes/contrib"
+  local dirs="core modules profiles themes"
 
   echo "Publishing assets of project dependencies..."
 
